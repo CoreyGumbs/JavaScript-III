@@ -21,11 +21,36 @@ notSpecified('Is this binded?');
 
 // Principle 2
 // code example for Implicit Binding
+const obj = {
+    name: 'Corey Gumbs',
+    age: 42,
+    sayGreeting: function(){
+        console.log(`Hi, my name is ${this.name} and I am ${this.age} years old. `);
+    }
+}
+
+obj.sayGreeting();
 
 // Principle 3
-
 // code example for New Binding
 
+function Person(attrs){
+    this.name = attrs.name;
+    this.profession = attrs.profession;
+    this.email = attrs.email;
+}
+
+Person.prototype.sendMail = function(){
+    return `Hi ${this.name}, I noticed your profession is ${this.profession} and your email is ${this.email}`;
+}
+
+const personOne = new Person({
+    name: 'John',
+    profession: 'Garbage Man',
+    email: 'johnSmithGarbage@test.com'
+});
+
+console.log(personOne.sendMail());
 // Principle 4
 
 // code example for Explicit Binding
