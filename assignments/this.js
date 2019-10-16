@@ -52,5 +52,18 @@ const personOne = new Person({
 
 console.log(personOne.sendMail());
 // Principle 4
-
 // code example for Explicit Binding
+
+function dogSound(){
+    console.log(`My dog ${this.dogName} likes to ${this.activity} while ${this.sound}.`);
+}
+
+const myDog ={
+    dogName: 'Spot',
+    activity: 'run',
+    sound: 'whimpering and yelping'
+}
+
+const dogNoise =  dogSound.bind(myDog);
+
+dogNoise();
